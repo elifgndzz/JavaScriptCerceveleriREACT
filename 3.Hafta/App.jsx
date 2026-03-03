@@ -1,33 +1,45 @@
 import { useState } from 'react'
+import "./App.css"; 
 
-import './App.css'
+function App() {
+  const [isim, setIsim] = useState("");
+  const [rol, setRol] = useState("Öğrenci");
+  const [mesaj, setMesaj] = useState("");
 
-function App(){
-  const [isim,SetIsim]=useState("");
-  const [selamlama,setSelamlama]=useState("");
-  return(
-    <div>
-    <h1>3. Hafta React Uygulamam</h1>
-    <input
-     type="text"
-    placeholder="İsminizi Giriniz."
-    value={isim}
-    onChange={(e)=>SetIsim(e.target.value)}
-    />
-    <button onClick={()=>setSelamlama(`Merhaba ${isim}`)}
-    style={{
-      backgroundColor:"red",
-      color:"white",
-      borderRadius:"6px",
-      marginLeft:"20px"
-    }}
-    >Gönder</button>
-    {
-      selamlama && (
-        <p style={{color:"black",fontSize:"25px", fontWeight:"bold"}}>{selamlama}</p>
-      )
+  const handleSubmit = () => {
+    if (isim.trim() === "") {
+      setMesaj("Lütfen isminizi giriniz.");
+    } else {
+      setMesaj(`Etkinliğe hoş geldiniz☀️  ${rol} ${isim}`);
     }
+  };
+
+  return (
+    <div style={{ textAlign: "center" }}>
+      <h1>Etkinlik Katılım Formu 💗 </h1>
+
+      <input
+        type="text"
+        placeholder="İsminizi girin"
+        value={isim}
+        onChange={(e) => setIsim(e.target.value)}
+      />
+      <br /><br />
+
+      <select value={rol} onChange={(e) => setRol(e.target.value)}>
+        <option>Öğrenci</option>
+        <option>Eğitmen</option>
+      </select>
+      <br /><br />
+
+      <button onClick={handleSubmit}>Katılımı Tamamla</button>
+      <br /><br />
+
+      {mesaj && (
+        <p style={{ color: "green", fontWeight: "bold" }}>{mesaj}</p>
+      )}
     </div>
   );
 }
+
 export default App;
