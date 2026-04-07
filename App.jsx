@@ -1,55 +1,37 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-const isim="Çisem";
-const email="cyasar@mail.com";
+function SifreUretici() {
+  const[uzunluk,setUzunluk] = useState(10);
+  const[sifre,setSifre] = useState("");
 
-function KullaniciBilgisi() {
+  const uret=() => {
+  const torba="ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZabcçdefgğhıijklmnoöprsştuüvyz0123456789";
+  let sonuc="";
+  for(let i=0; i< uzunluk; i++){
+    const rastgeleIndex=Math.floor(Math.random() * torba.length);
+    sonuc += torba.charAt(rastgeleYer);
+
+  }
+  setSifre(sonuc);
+};
 return(
-  /*fragment */
-  <>
-   <h2>{isim}</h2>
-   <h3>{email}</h3>
-  </>
-);
-  
-}
-const urun1 = "Kablosuz Kulaklık";
-const fiyat1 = 299.99;
-const kdv1 = fiyat1 * 1.20;
-const stok1 = true;
-
-const urun2 = "Bilgisayar";
-const fiyat2 = 1099.99;
-const kdv2 = fiyat2 * 1.20;
-const stok2 = false;
-
-function SepetBilgisi() {
-  return (
-    <>
-      <h2>{urun1}</h2>
-      <h3>Fiyat: {fiyat1} TL</h3>
-      <h3>KDV dahil: {kdv1.toFixed(2)} TL</h3>
-      {stok1 ? <p>Stokta var</p> : <p>Stokta yok</p>}
-
-      <h2>{urun2}</h2>
-      <h3>Fiyat: {fiyat2} TL</h3>
-      <h3>KDV dahil: {kdv2.toFixed(2)} TL</h3>
-      {stok2 ? <p>Stokta var</p> : <p>Stokta yok</p>}
-    </>
-  );
-}
-
-function App(){
-return(
-<>
-<h1>Kullanıcı Bilgileri</h1>
-<KullaniciBilgisi/>
-<SepetBilgisi/>
-
-</>
+  <div className="sifre-kart">
+<h1>Şifre Üretici</h1>
+<div className ="sifre-ekrani">
+  {sifre||"****"}
+</div>
+  <div style={{marginBottom:'20px'}}>
+    <input
+    type="number"
+    value={uzunluk}
+    onChange={(e)=>setUzunluk(e.target.value)}
+  />
+  <span>Karakter</span>
+  </div>
+  <button onClick={uret}>Yeni Şifre Üret</button>
+  </div>
 );
 }
-export default App;
+    export default SifreUretici;

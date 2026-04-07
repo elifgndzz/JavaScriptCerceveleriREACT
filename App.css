@@ -1,0 +1,26 @@
+.sifre-kart{
+  max-width: 350px;
+  margin:50px auto;
+  background-color: #fff;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.sifre-ekrani{
+background-color: pink;
+color:purple;
+padding:15px;
+border-radius: 8px;
+margin-bottom: 20px;
+min-height: 30px;
+
+}
+.input{
+  width: 50px;
+  padding:8px;
+ border-radius: 8px;
+ padding:10px 20px;
+ cursor: pointer;
+}
