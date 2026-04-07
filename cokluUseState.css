@@ -1,0 +1,29 @@
+.profil{
+color:rgb(29, 29, 29);
+
+}
+.profil h1{
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.profil input{
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #a9b0b3;
+    border-radius: 9px;
+}
+.profil h3{
+color:rgb(241, 189, 243);
+}
+.onizleme{
+margin-top: 25px;
+ margin-bottom: 10px;
+width: 100%;
+text-align: center;
+background-color: rgb(241, 189, 243);
+border:4px solid rgb(228, 126, 231);
+border-radius: 9px;
+
+}
