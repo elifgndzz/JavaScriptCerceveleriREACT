@@ -1,37 +1,70 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import './App.css'
+import viteLogo from './assets/vite.svg'
 
-function SifreUretici() {
-  const[uzunluk,setUzunluk] = useState(10);
-  const[sifre,setSifre] = useState("");
-
-  const uret=() => {
-  const torba="ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZabcçdefgğhıijklmnoöprsştuüvyz0123456789";
-  let sonuc="";
-  for(let i=0; i< uzunluk; i++){
-    const rastgeleIndex=Math.floor(Math.random() * torba.length);
-    sonuc += torba.charAt(rastgeleYer);
-
-  }
-  setSifre(sonuc);
-};
+function Meyveler(){
+const meyve=['Elma','Armut','Muz','Çilek','Erik'];
 return(
-  <div className="sifre-kart">
-<h1>Şifre Üretici</h1>
-<div className ="sifre-ekrani">
-  {sifre||"****"}
-</div>
-  <div style={{marginBottom:'20px'}}>
-    <input
-    type="number"
-    value={uzunluk}
-    onChange={(e)=>setUzunluk(e.target.value)}
-  />
-  <span>Karakter</span>
-  </div>
-  <button onClick={uret}>Yeni Şifre Üret</button>
-  </div>
+<>
+<h2>Meyve Listesi</h2>
+<ul>
+{meyve.map((meyvelerin,index)=>(
+<li key={index}>{meyvelerin} </li>
+
+))}
+</ul>
+<p>Toplam:{meyve.length}</p>
+</>
+
 );
+
 }
-    export default SifreUretici;
+
+
+function OgrenciListesi(){
+const ogrenciler=[
+{id:1, isim:'Elif',puan:85},
+{id:2, isim:'Çisem',puan:55},
+{id:3, isim:'Tuğba',puan:50},
+
+];
+return(
+  <>
+  <h3>Öğrenci Listesi</h3>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Adı</th>
+      <th>Puan</th>
+       <th>Durum</th>
+    </tr>
+    {ogrenciler.map(ogr=>( 
+    <tr key={ogr.id}>
+<td>{ogr.id}</td>
+<td>{ogr.isim}</td>
+<td>{ogr.puan}</td>
+<td>{ogr.puan>=80?'Başarılı':'Çalış'}</td>
+    </tr>
+    
+   ) )}
+  </table>
+  </>
+
+  );
+
+}
+
+function App(){
+return(
+<>
+<Meyveler/>
+<OgrenciListesi/>
+</>
+);
+
+}
+
+
+
+
+export default App;
